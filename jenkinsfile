@@ -38,19 +38,19 @@ pipeline {
             }
         }
 
-            stage('Run Ansible Playbook') {
-               steps {
-//                    script {
-//                      withEnv(["ANSIBLE_HOST_KEY_CHECKING=False"]) {
-//                        ansiblePlaybook(
-//                            playbook: 'deploy.yml',
-//                            inventory: 'inventory'
-//                        )
-//                    }
-//                }
-           }
-        }
-       }
+//             stage('Run Ansible Playbook') {
+//                steps {
+// //                    script {
+// //                      withEnv(["ANSIBLE_HOST_KEY_CHECKING=False"]) {
+// //                        ansiblePlaybook(
+// //                            playbook: 'deploy.yml',
+// //                            inventory: 'inventory'
+// //                        )
+// //                    }
+// //                }
+//            }
+//         }
+//        }
         post {
                success {
                    mail to: 'b.thangaraju@iiitb.ac.in',
