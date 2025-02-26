@@ -39,7 +39,7 @@ pipeline {
         }
 
             stage('Run Ansible Playbook') {
-//                steps {
+               steps {
 //                    script {
 //                      withEnv(["ANSIBLE_HOST_KEY_CHECKING=False"]) {
 //                        ansiblePlaybook(
@@ -48,7 +48,7 @@ pipeline {
 //                        )
 //                    }
 //                }
-//            }
+           }
         }
        }
         post {
