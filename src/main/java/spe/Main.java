@@ -48,6 +48,10 @@ public class Main {
         return Math.log(x);
     }
 
+    public static double power(double base, double exponent) {
+        return Math.pow(base, exponent);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -59,11 +63,12 @@ public class Main {
             System.out.println("5. Square Root");
             System.out.println("6. Factorial");
             System.out.println("7. Natural Logarithm (ln)");
-            System.out.println("8. Exit");
+            System.out.println("8. Power Function (x^b)");
+            System.out.println("9. Exit");
             System.out.print("Choose an operation: ");
 
             int choice = scanner.nextInt();
-            if (choice == 8) {
+            if (choice == 9) {
                 System.out.println("Exiting calculator. Goodbye!");
                 break;
             }
@@ -128,6 +133,13 @@ public class Main {
                     } catch (ArithmeticException e) {
                         System.out.println("Error: " + e.getMessage());
                     }
+                    break;
+                case 8:
+                    System.out.print("Enter base number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter exponent: ");
+                    num2 = scanner.nextDouble();
+                    System.out.println("Result: " + power(num1, num2));
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");

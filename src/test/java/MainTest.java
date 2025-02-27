@@ -81,4 +81,15 @@ public class MainTest {
         assertThrows(ArithmeticException.class, () -> Main.naturalLog(0));
         assertThrows(ArithmeticException.class, () -> Main.naturalLog(-5));
     }
+
+    @Test
+    public void testPower() {
+        assertEquals(8.0, Main.power(2, 3), 0.0001);
+        assertEquals(1.0, Main.power(5, 0), 0.0001);
+        assertEquals(0.0, Main.power(0, 5), 0.0001);
+        assertEquals(1024.0, Main.power(2, 10), 0.0001);
+        assertEquals(0.125, Main.power(2, -3), 0.0001);
+        assertEquals(1.0, Main.power(1, 100), 0.0001);
+        assertEquals(1.0, Main.power(0, 0), 0.0001);
+    }
 }
