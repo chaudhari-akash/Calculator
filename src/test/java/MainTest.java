@@ -35,4 +35,36 @@ public class MainTest {
         Exception exception = assertThrows(ArithmeticException.class, () -> Main.divide(6, 0));
         assertEquals("Division by zero", exception.getMessage());
     }
+
+    @Test
+    public void testSquareRoot() {
+        assertEquals(4.0, Main.squareRoot(16), 0.0001);
+        assertEquals(0.0, Main.squareRoot(0), 0.0001);
+        assertEquals(1.0, Main.squareRoot(1), 0.0001);
+        assertEquals(5.0, Main.squareRoot(25), 0.0001);
+        assertEquals(Math.sqrt(50), Main.squareRoot(50), 0.0001);
+    }
+
+    @Test
+    public void testSquareRootNegative() {
+        assertThrows(ArithmeticException.class, () -> Main.squareRoot(-4));
+        assertThrows(ArithmeticException.class, () -> Main.squareRoot(-100));
+    }
+
+    @Test
+    public void testFactorial() {
+        assertEquals(1, Main.factorial(0), 0.0001);
+        assertEquals(1, Main.factorial(1), 0.0001);
+        assertEquals(2, Main.factorial(2), 0.0001);
+        assertEquals(6, Main.factorial(3), 0.0001);
+        assertEquals(24, Main.factorial(4), 0.0001);
+        assertEquals(120, Main.factorial(5), 0.0001);
+        assertEquals(3628800, Main.factorial(10), 0.0001);
+    }
+
+    @Test
+    public void testFactorialNegative() {
+        assertThrows(ArithmeticException.class, () -> Main.factorial(-5));
+        assertThrows(ArithmeticException.class, () -> Main.factorial(-10));
+    }
 }

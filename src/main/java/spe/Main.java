@@ -30,6 +30,17 @@ public class Main {
         return Math.sqrt(x);
     }
 
+    public static long factorial(int x) {
+        if (x < 0) {
+            throw new ArithmeticException("Factorial of a negative number is undefined");
+        }
+        long fact = 1;
+        for (int i = 1; i <= x; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -39,11 +50,12 @@ public class Main {
             System.out.println("3. Multiplication");
             System.out.println("4. Division");
             System.out.println("5. Square Root");
-            System.out.println("6. Exit");
+            System.out.println("6. Factorial");
+            System.out.println("7. Exit");
             System.out.print("Choose an operation: ");
 
             int choice = scanner.nextInt();
-            if (choice == 6) {
+            if (choice == 7) {
                 System.out.println("Exiting calculator. Goodbye!");
                 break;
             }
@@ -87,6 +99,15 @@ public class Main {
                     num1 = scanner.nextDouble();
                     try {
                         System.out.println("Result: " + squareRoot(num1));
+                    } catch (ArithmeticException e) {
+                        System.out.println("Error: " + e.getMessage());
+                    }
+                    break;
+                case 6:
+                    System.out.print("Enter integer: ");
+                    int num = scanner.nextInt();
+                    try {
+                        System.out.println("Result: " + factorial(num));
                     } catch (ArithmeticException e) {
                         System.out.println("Error: " + e.getMessage());
                     }
