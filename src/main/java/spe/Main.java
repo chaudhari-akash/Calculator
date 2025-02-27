@@ -1,4 +1,5 @@
 package spe;
+
 import java.util.Scanner;
 
 public class Main {
@@ -22,40 +23,78 @@ public class Main {
         return a / b;
     }
 
+    public static double squareRoot(double x) {
+        if (x < 0) {
+            throw new ArithmeticException("Cannot calculate square root of a negative number");
+        }
+        return Math.sqrt(x);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("\nSimple Calculator Program");
+            System.out.println("\nScientific Calculator Program");
             System.out.println("1. Addition");
             System.out.println("2. Subtraction");
             System.out.println("3. Multiplication");
             System.out.println("4. Division");
-            System.out.println("5. Exit");
+            System.out.println("5. Square Root");
+            System.out.println("6. Exit");
             System.out.print("Choose an operation: ");
 
             int choice = scanner.nextInt();
-            if (choice == 5) {
+            if (choice == 6) {
                 System.out.println("Exiting calculator. Goodbye!");
                 break;
             }
 
             double num1, num2;
-            System.out.print("Enter first number: ");
-            num1 = scanner.nextDouble();
-            System.out.print("Enter second number: ");
-            num2 = scanner.nextDouble();
-
             switch (choice) {
-                case 1 -> System.out.println("Result: " + addition(num1 , num2));
-                case 2 -> System.out.println("Result: " + subtract(num1 , num2));
-                case 3 -> System.out.println("Result: " + multiply(num1 , num2));
-                case 4 -> System.out.println("Result: " + divide(num1 , num2));
-                default -> System.out.println("Invalid choice. Please try again.");
+                case 1:
+                    System.out.print("Enter first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter second number: ");
+                    num2 = scanner.nextDouble();
+                    System.out.println("Result: " + addition(num1, num2));
+                    break;
+                case 2:
+                    System.out.print("Enter first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter second number: ");
+                    num2 = scanner.nextDouble();
+                    System.out.println("Result: " + subtract(num1, num2));
+                    break;
+                case 3:
+                    System.out.print("Enter first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter second number: ");
+                    num2 = scanner.nextDouble();
+                    System.out.println("Result: " + multiply(num1, num2));
+                    break;
+                case 4:
+                    System.out.print("Enter first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter second number: ");
+                    num2 = scanner.nextDouble();
+                    try {
+                        System.out.println("Result: " + divide(num1, num2));
+                    } catch (ArithmeticException e) {
+                        System.out.println("Error: " + e.getMessage());
+                    }
+                    break;
+                case 5:
+                    System.out.print("Enter number: ");
+                    num1 = scanner.nextDouble();
+                    try {
+                        System.out.println("Result: " + squareRoot(num1));
+                    } catch (ArithmeticException e) {
+                        System.out.println("Error: " + e.getMessage());
+                    }
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
             }
         }
         scanner.close();
     }
-
-
-
 }
