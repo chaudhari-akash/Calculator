@@ -41,6 +41,13 @@ public class Main {
         return fact;
     }
 
+    public static double naturalLog(double x) {
+        if (x <= 0) {
+            throw new ArithmeticException("Natural logarithm is undefined for zero or negative values");
+        }
+        return Math.log(x);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -51,11 +58,12 @@ public class Main {
             System.out.println("4. Division");
             System.out.println("5. Square Root");
             System.out.println("6. Factorial");
-            System.out.println("7. Exit");
+            System.out.println("7. Natural Logarithm (ln)");
+            System.out.println("8. Exit");
             System.out.print("Choose an operation: ");
 
             int choice = scanner.nextInt();
-            if (choice == 7) {
+            if (choice == 8) {
                 System.out.println("Exiting calculator. Goodbye!");
                 break;
             }
@@ -108,6 +116,15 @@ public class Main {
                     int num = scanner.nextInt();
                     try {
                         System.out.println("Result: " + factorial(num));
+                    } catch (ArithmeticException e) {
+                        System.out.println("Error: " + e.getMessage());
+                    }
+                    break;
+                case 7:
+                    System.out.print("Enter number: ");
+                    num1 = scanner.nextDouble();
+                    try {
+                        System.out.println("Result: " + naturalLog(num1));
                     } catch (ArithmeticException e) {
                         System.out.println("Error: " + e.getMessage());
                     }

@@ -67,4 +67,18 @@ public class MainTest {
         assertThrows(ArithmeticException.class, () -> Main.factorial(-5));
         assertThrows(ArithmeticException.class, () -> Main.factorial(-10));
     }
+
+    @Test
+    public void testNaturalLog() {
+        assertEquals(Math.log(10), Main.naturalLog(10), 0.0001);
+        assertEquals(Math.log(1), Main.naturalLog(1), 0.0001);
+        assertEquals(Math.log(2.71828), Main.naturalLog(2.71828), 0.0001);
+        assertEquals(Math.log(100), Main.naturalLog(100), 0.0001);
+    }
+
+    @Test
+    public void testNaturalLogZeroOrNegative() {
+        assertThrows(ArithmeticException.class, () -> Main.naturalLog(0));
+        assertThrows(ArithmeticException.class, () -> Main.naturalLog(-5));
+    }
 }
