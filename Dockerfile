@@ -15,7 +15,7 @@ WORKDIR /app
 
 COPY --from=builder /app/target/*.jar myapp.jar
 
-CMD ["java", "-jar", "myapp.jar"]
 
+CMD ["java", "-jar", "myapp.jar"]
 
 
