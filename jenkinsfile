@@ -20,6 +20,18 @@ pipeline {
             }
         }
 
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 script {
@@ -61,7 +73,7 @@ pipeline {
                 body: "The build was successful!"
         }
         failure {
-            mail to: 'b.thangaraju@iiitb.ac.in',
+            mail to: 'Chaudhari.Akash@iiitb.ac.in',
                  subject: "Application Deployment FAILURE: Build ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                  body: "The build failed."
         }
