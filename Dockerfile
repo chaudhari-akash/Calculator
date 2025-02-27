@@ -1,11 +1,21 @@
-FROM openjdk:21
+FROM maven:3.9.6-eclipse-temurin-21 AS builder
 
 WORKDIR /app
 
-COPY . /app
+COPY pom.xml .
+COPY src ./src
 
-RUN javac -d /app/out src/main/java/spe/Main.java
+RUN mvn dependency:go-offline
 
-CMD ["java", "-cp", "/app/out", "spe.Main"]
+RUN mvn clean package -DskipTests
+
+FROM eclipse-temurin:21-jre
+
+WORKDIR /app
+
+COPY --from=builder /app/target/*.jar myapp.jar
+
+CMD ["java", "-jar", "myapp.jar"]
+
 
 
