@@ -6,7 +6,7 @@
   tasks:
     - name: Pull Docker Image
       docker_image:
-        name: "chaudhariakash/calculator"
+        name: "chaudhariakash/calculator:latest"
         source: pull
       register: docker_pull_result
 
@@ -18,8 +18,10 @@
       service:
         name: docker
         state: started
+
     - name: Removing container if present
       shell: docker rm -f calculator
       ignore_errors: yes
+
     - name: Running container
-      shell: docker run -it -d --name calculator chaudhariakash/calculator
+      shell: docker run -it -d --name calculator chaudhariakash/calculator:latest
