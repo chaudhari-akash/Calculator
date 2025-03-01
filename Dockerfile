@@ -4,6 +4,7 @@
 #RUN javac -d /app/out src/main/java/spe/Main.java
 #CMD ["java", "-cp", "/app/out", "spe.Main"]
 
+
 FROM maven:3.9.6-eclipse-temurin-21 AS builder
 
 WORKDIR /app
