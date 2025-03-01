@@ -45,7 +45,7 @@ pipeline {
                 script{
                     docker.withRegistry('', 'DockerHubCred') {
                         sh 'docker tag calculator chaudhariakash/calculator:latest'
-                        sh 'docker push chaudhariakash/calculator'
+                        sh 'docker push chaudhariakash/calculator:latest'
                     }
                 }
             }
@@ -61,7 +61,6 @@ pipeline {
                                    )
                     }
                 }
-                    echo "Ansible Stage"
             }
         }
     }
