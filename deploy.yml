@@ -24,4 +24,4 @@
       ignore_errors: yes
 
     - name: Running container
-      shell: docker run -it -d --name calculator chaudhariakash/calculator:latest
+      shell: docker run -it --name calculator chaudhariakash/calculator:latest
