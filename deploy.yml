@@ -1,8 +1,8 @@
 ---
 - name: Pull Docker Image from Docker Hub
   hosts: localhost
-  remote_user: jenkins
-  become: true
+  remote_user: chaudhariakash
+  become: false
   tasks:
     - name: Pull Docker Image
       docker_image:
